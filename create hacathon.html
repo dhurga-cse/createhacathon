@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)file:///C:/Users/hp/Downloads/samplepro.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyful Scribbles</title>
+    <style>
+    
+
+        body {
+            font-family: 'Rustico';
+            margin: 0;
+            padding: 0;
+            background-color: #ccefff;
+            overflow-x: hidden;
+        }
+
+        header {
+            font-family: 'Monaca';
+            background-color: #87ceeb;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-size: 18px;
+            margin: 0 12px;
+            background-color: #5ab0d6;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            background-color: #4682b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-section {
+            text-align: center;
+            padding: 70px 20px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 1s;
+        }
+
+        .home-section h2 {
+            font-size: 3em;
+            color: #5ab0d6;
+            font-weight: bold;
+            text-transform: capitalize;
+            letter-spacing: 1.0px;
+            opacity: 0;
+            animation: fadeIn 1.0s forwards 1.0s;
+            margin-top: 3px;
+        }
+
+        .home-section p {
+            font-size: 1.5em;
+            margin-top: 15px;
+            color: #333;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 2s;
+        }
+
+        .home-section .button {
+            background-color: #5ab0d6;
+            color: white;
+            padding: 18px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 50px;
+            transition: background-color 0.3s;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards 2.5s;
+            font-weight: 600;
+        }
+
+        .home-section .button:hover {
+            background-color: #4682b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #5ab0d6;
+            text-align: center;
+            color: white;
+            padding: 15px;
+            font-size: 1.1em;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: 400;
+        }
+
+        .product-container {
+            display: none;
+            padding: 40px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .search-bar {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 12px;
+            border-radius: 25px;
+            width: 50%;
+            font-size: 16px;
+            border: 2px solid #5ab0d6;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .search-bar button {
+            padding: 12px 20px;
+            background-color: #5ab0d6;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+
+        .search-bar button:hover {
+            background-color: #4682b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .products-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #f1f1f1;
+            border-radius: 15px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 1.5em;
+            color: #5ab0d6;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-card .price {
+            font-size: 1.3em;
+            color: #333;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            background-color: #5ab0d6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .product-card button:hover {
+            background-color: #4682b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Top Right Cart Button */
+        .cart-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #5ab0d6;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        .cart-btn:hover {
+            background-color: #4682b4;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Cart Message */
+        .cart-message {
+            color: green;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Total Price Display */
+        .total-price {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        /* Review Section Styles */
+.review-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-section h3 {
+    font-size: 1.8em;
+    color: #5ab0d6;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Review Form Styles */
+#review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the button horizontally */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#review-form textarea {
+    width: 80%;
+    height: 100px;
+    border: 2px solid #5ab0d6;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    resize: none;
+    margin-bottom: 5px; /* Reduced margin to make it closer to the submit button */
+}
+
+#review-form button {
+    background-color: #5ab0d6;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 10px; /* Adjust margin-top to lift the submit button */
+    width: auto; /* Optional: makes button width adjust to text */
+}
+
+#review-form button:hover {
+    background-color: #4682b4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+#review-list {
+    margin-top: 20px;
+}
+
+#review-list h4 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+#review-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#review-list ul li {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    color: #333;
+    text-align: left;
+}
+/* Customer Reviews Styles */
+#customer-reviews {
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+}
+
+#customer-reviews h3 {
+    text-align: left;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.review {
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.reviewer-name {
+    font-size: 1.2em;
+    color: #5ab0d6;
+}
+
+.review-rating {
+    color: #ff9800; /* Golden color for the stars */
+    font-size: 1.5em;
+}
+
+.review-text {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 300;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Joyful Scribbles</h1>
+    </header>
+
+    <!-- Cart Button on the top right corner -->
+    <button class="cart-btn" onclick="viewCart()" style="display:none;">View Cart</button>
+
+    <nav>
+        <a href="file:///C:/Users/hp/Downloads/samplepro.html#" onclick="goHome()">Home</a>
+    </nav>
+
+    <div class="home-section">
+        <h2>Welcome to the Stationery Wonderland!</h2>
+        <img src="file:///C:/Users/sathya/Documents/stationeryshop.jpg" width="400" height="300" alt="Stationery Products" class="welcome-image">
+        <p>Your one-stop shop for all school and office supplies.</p>
+        <a href="file:///C:/Users/hp/Downloads/samplepro.html#products" onclick="showProducts()" class="button">Explore Our Products</a>
+    </div>
+    
+
+    <div id="products" class="product-container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div class="products-list" id="product-list">
+            <!-- Dynamic Product Cards will be displayed here -->
+        </div>
+    </div>
+
+    <div class="review-section">
+        <h3>Write a Review</h3>
+        <form id="review-form" onsubmit="submitReview(event)">
+            <textarea id="review-text" placeholder="Write your review here..." required=""></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+        <div id="review-list">
+            <h4>Customer Reviews</h4>
+            <ul></ul>
+        </div>
+    </div>
+    <!-- Predefined Customer Reviews with Star Ratings -->
+<div id="customer-reviews">
+    <h3>Customer Reviews:</h3>
+    <div class="review">
+        <div class="review-header">
+            <span class="reviewer-name">John Doe</span>
+            <span class="review-rating">
+                ★★★★☆ <!-- 4 out of 5 stars -->
+            </span>
+        </div>
+        <p class="review-text">Great product! I highly recommend it to anyone looking for quality stationery.</p>
+    </div>
+
+    <div class="review">
+        <div class="review-header">
+            <span class="reviewer-name">Jane Smith</span>
+            <span class="review-rating">
+                ★★★★★ <!-- 5 out of 5 stars -->
+            </span>
+        </div>
+        <p class="review-text">Very satisfied with my purchase. The notebook is durable and affordable!</p>
+    </div>
+
+    <div class="review">
+        <div class="review-header">
+            <span class="reviewer-name">Alice Brown</span>
+            <span class="review-rating">
+                ★★★☆☆ <!-- 3 out of 5 stars -->
+            </span>
+        </div>
+        <p class="review-text">Good quality but a bit too small for my needs. Still, great value for the price.</p>
+    </div>
+</div>
+
+
+    <footer>
+        <p>© 2024 Joyful Scribbles. Bringing joy to learning!</p>
+    </footer>
+
+    <script>
+        const products = [
+            { id: 1, name: "Notebook", description: "A5 size, 100 pages", price: 3.99,image: "notebook.jpg"  },
+            { id: 2, name: "Pencil Set", description: "Pack of 10 pencils", price: 2.49, image: "pencil.jpg" },
+            { id: 3, name: "Ruler", description: "30 cm transparent ruler", price: 1.50, image: "ruler.jpg" },
+            { id: 4, name: "Eraser", description: "Soft eraser for clean erasing", price: 0.99, image: "eraser.jpg" },
+            { id: 5, name: "Pen Set", description: "Set of 6 gel pens", price: 5.49, image: "penset.jpg" },
+            { id: 6, name: "Marker Set", description: "Pack of 12 colorful markers", price: 8.99, image: "markerset.jpg" },
+            { id: 7, name: "Highlighter", description: "Yellow highlighter pen", price: 1.99, image: "highlighter.jpg" },
+            { id: 8, name: "Stapler", description: "Compact stapler with staples", price: 4.99, image: "stapler.jpg" },
+            { id: 9, name: "Paper Clips", description: "Box of 100 paper clips", price: 2.00, image: "paperclip.jpg" },
+            { id: 10, name: "File Folder", description: "Set of 5 file folders", price: 6.99, image: "filefolder.jpg" },
+            { id: 11, name: "Scissors", description: "Sharp scissors for office use", price: 3.99, image: "scissors.jpg" },
+            { id: 12, name: "Glue Stick", description: "Small glue stick for crafts", price: 1.49, image: "gluestick.jpg" },
+        ];
+
+        let cart = [];
+
+        function goHome() {
+            document.querySelector(".home-section").style.display = "block";
+            document.querySelector(".product-container").style.display = "none";
+            document.querySelector(".cart-btn").style.display = "none"; // Hide cart button on home page
+        }
+
+        function showProducts() {
+            document.querySelector(".home-section").style.display = "none";
+            document.querySelector(".product-container").style.display = "block";
+            document.querySelector(".cart-btn").style.display = "block"; // Show cart button on product page
+            displayProducts(products);
+        }
+
+        function searchProducts() {
+            const searchTerm = document.getElementById("search").value.toLowerCase();
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm)
+            );
+            displayProducts(filteredProducts);
+        }
+
+        function displayProducts(productsToDisplay) {
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = ""; 
+
+            productsToDisplay.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.classList.add("product-card");
+
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <div class="price">$${product.price.toFixed(2)}</div>
+                    <button onclick="addToCart(${product.id})">Add to Cart</button>
+                    <div class="cart-message" id="message-${product.id}" style="display:none;">Added to Cart</div>
+                `;
+
+                productList.appendChild(productCard);
+            });
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+
+            // Show the added message and hide it after 2 seconds
+            const message = document.getElementById(`message-${productId}`);
+            message.style.display = "block";
+            setTimeout(() => {
+                message.style.display = "none";
+            }, 2000);
+
+            // Update cart button to show the number of items
+            updateCartButton();
+        }
+
+        function updateCartButton() {
+            const cartButton = document.querySelector('.cart-btn');
+            cartButton.textContent = `Cart (${cart.length})`;
+        }
+
+        function viewCart() {
+            let totalPrice = 0;
+            cart.forEach(item => totalPrice += item.price);
+
+            alert(`You have ${cart.length} items in your cart. Total Price: $${totalPrice.toFixed(2)}`);
+        }
+        const reviews = [];
+
+function submitReview(event) {
+    event.preventDefault(); // Prevent the form from reloading the page
+    const reviewText = document.getElementById('review-text').value;
+
+    if (reviewText.trim() !== "") {
+        reviews.push(reviewText.trim());
+        document.getElementById('review-text').value = ""; // Clear the input field
+        displayReviews();
+    }
+}
+
+function displayReviews() {
+    const reviewList = document.querySelector('#review-list ul');
+    reviewList.innerHTML = ""; // Clear previous reviews
+
+    reviews.forEach(review => {
+        const reviewItem = document.createElement('li');
+        reviewItem.textContent = review;
+        reviewList.appendChild(reviewItem);
+    });
+}
+
+    </script>
+
+
+
+</body></html>
